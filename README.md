@@ -6,7 +6,7 @@
 
 ### 🔧🎨 Initially built out with MUI and SCSS to prove scope and methodology for a totally custom frontend. 
 
-### 💻💡 How many components?  just two, but favored the utility of ReactQuery to facilitate some of those awesome  and simple way to set up fetch, caching, error trapping and any possible CRUD features that may be needed 💻💡
+### 💻💡 How many components?  Just two, but favored the utility of ReactQuery to facilitate some awesome and simplified methods it enables for setting up get/fetch, caching, error handeling and future options for CRUD management features 💻💡
 
 ### APIs:  used two spacex's open APIs.  🔮 🌌
 
