@@ -1,0 +1,213 @@
+@import "modern-css-reset";
+
+// ================================
+// vars and mixins
+// ================================
+
+ 
+
+/* Using SCSS variables to store breakpoints  */
+// can be condensesed further into mixins too
+$breakpoint-tablet: 768px;
+
+
+@mixin boxshadow-default {
+box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+}
+
+// ================================
+//  ui color scheme from  https://www.happyhues.co/palettes/17
+// ================================.
+$theme-scheme-default--bg: #fef6e4;
+$theme-scheme-default--elements-bg: #f3d2c1;
+$theme-scheme-default--border: #001858;
+$theme-scheme-default--button: #f582ae;
+$theme-scheme-default--copy: #8bd3dd;
+
+.mvp__UI__utility {
+  
+  &__container {
+    background: $theme-scheme-default--bg;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    border: 4px dashed $theme-scheme-default--button;
+    position: relative;
+
+    &__padding{
+     
+    }
+  }
+
+  
+  &__d-content{
+display: contents;
+  }
+  &__wordbreak{
+    display: flex;
+    word-break: break-all;
+  }
+
+  &__img{
+    &--lg{
+width: 500px;
+      display: flex;
+      flex-flow: column;
+      margin: 0 auto;
+    text-align: center;
+    margin-bottom: 1rem;
+ 
+  }
+
+}
+
+  &__button__primary {
+    background: $theme-scheme-default--elements-bg;
+    padding:  0.5rem;
+    color: $theme-scheme-default--border;
+    border: 2px solid transparent;
+    &:hover,
+    &:focus {
+      background:  $theme-scheme-default--border;
+      color: $theme-scheme-default--elements-bg;
+      transition: all ease-in-out 0.4s;
+      
+      border: 2px solid $theme-scheme-default--border;
+    }
+
+  }
+
+
+  &__button__secondary {
+    background: transparent;
+    padding: 1rem;
+    transition: all ease-in-out 0.4s;
+    color: $theme-scheme-default--border;
+    border: 2px dashed $theme-scheme-default--border;
+    &:hover,
+    &:focus {
+      background: $theme-scheme-default--border;
+      color:$theme-scheme-default--copy;
+      transition: all ease-in-out 0.4s;
+      
+    }
+  }
+
+  &__link {
+    color: $theme-scheme-default--copy;
+    text-decoration: none;
+    transition: all ease-in-out 0.4s; 
+      display: flex;
+      flex-flow: column;
+      position: relative;
+      white-space: nowrap;
+      display: contents; 
+     justify-content: center;
+     align-items: center;
+  
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: $theme-scheme-default--border;
+      transition: all ease-in-out 0.4s;
+    }
+  }
+
+  &__grid{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+gap: 1rem;
+align-items: center;
+margin-bottom: 2rem;
+
+@media (max-width: $breakpoint-tablet) {
+  grid-template-columns: 1fr 1fr ;
+}
+@include boxshadow-default;
+    &__item{
+      display: flex;
+      border: 1px solid red;
+
+      &:hover, &:focus{
+        border: 1px dashed pink;
+      }
+   
+
+    }
+  }
+
+  &__navigation {
+    @extend .mvp__UI__utility__grid;
+    margin-bottom: 2rem;
+    &__item {
+
+      @extend .mvp__UI__utility__button__secondary;
+      @extend .mvp__UI__utility__grid__item;
+
+      
+    }
+
+    &__item__link {
+      @extend .mvp__UI__utility__link;
+ 
+    }
+  }
+
+  &__list{
+    @extend .mvp__UI__utility__grid;
+    list-style: none;
+    margin: 0;
+    padding: 0; 
+    border: 0;
+    
+  &__item{
+    @extend .mvp__UI__utility__grid__item;
+    border: 0;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+}
+
+  &__copy{
+    &__h2{
+      line-height: 1;
+      font-size: 1.3rem;
+    }
+    &__h5{
+      line-height: 1;
+      font-size: 0.87rem;
+      color: $theme-scheme-default--button;
+    }
+    &__link-text{
+      line-height: 1;
+      font-size: 0.87rem;
+      color: $theme-scheme-default--copy;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+// ==========================================================
+// split these out to where their components would live eg:
+// header/_header.scss/ footer/_footer.scss / cards/_cards.scss
+// eventualy putting header/footer/nav into a Layout Component
+// ==========================================================
+.mvp__UI {
+  &__header {
+  }
+}
+.mvp__UI {
+  &__footer {
+  }
+}
+.mvp__UI {
+  &__cards {
+  }
+}
+.mvp__UI {
+  &__navmenu {
+  }
+}
